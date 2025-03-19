@@ -7,17 +7,17 @@ import SelectedProduct from './pages/SelectedProduct';
 import CartItems from './pages/CartItems';
 import OrdersPage from './pages/OrdersPage';
 import LoginPage from './pages/LoginPage';
-import PrivateComponent from './Components/PrivateComponent';
 import Layout from './Components/Layout';
+import PrivateRoute from './Components/PrivateRoute';
 
 const router = createBrowserRouter([
   { path: "/:page?/:id?", element: <Layout />,
     children: [
     { index: true, element: <Homepage /> },
     { path:"login", element:<LoginPage /> },
-    { path:'product/:id', element: <PrivateComponent><SelectedProduct /></PrivateComponent>},
-    { path:"cartitems", element:<PrivateComponent><CartItems /></PrivateComponent> },
-    { path:"orders", element:<PrivateComponent><OrdersPage /></PrivateComponent> },
+    { path:'product/:id', element: <PrivateRoute><SelectedProduct /></PrivateRoute>},
+    { path:"cartitems", element:<PrivateRoute><CartItems /></PrivateRoute> },
+    { path:"orders", element:<PrivateRoute><OrdersPage /></PrivateRoute> },
 
   ] }, 
   
