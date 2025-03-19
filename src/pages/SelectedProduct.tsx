@@ -1,7 +1,7 @@
 import  { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { addToCart, getProductById, removeFromCart } from '../store/productsSlice';
+import { addToCart, getProductById } from '../store/productsSlice';
 import { RootState } from '../store/store';
 
 const SelectedProduct = () => {

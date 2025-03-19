@@ -1,24 +1,23 @@
-import React, { useEffect } from 'react'
-import { BrowserRouter, createBrowserRouter, RouterProvider  } from 'react-router-dom'
-import Nav from './Nav';
+import  { useEffect } from 'react'
+import {  createBrowserRouter, RouterProvider  } from 'react-router-dom'
 import Homepage from './pages/homepage';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from './store/store';
-import { getProducts, Product } from './store/productsSlice';
+import { useDispatch } from 'react-redux';
+import { getProducts } from './store/productsSlice';
 import SelectedProduct from './pages/SelectedProduct';
-import Layout from './Layout';
 import CartItems from './pages/CartItems';
 import OrdersPage from './pages/OrdersPage';
-import PrivateComponent from './PrivateComponent';
 import LoginPage from './pages/LoginPage';
+import PrivateComponent from './Components/PrivateComponent';
+import Layout from './Components/Layout';
 
 const router = createBrowserRouter([
-  { path: "/", element: <Layout />,children: [
+  { path: "/:page?/:id?", element: <Layout />,
+    children: [
     { index: true, element: <Homepage /> },
-    { path:"/login", element:<LoginPage /> },
-    { path:'/product/:id', element: <PrivateComponent><SelectedProduct /></PrivateComponent>},
-    { path:"/cartitems", element:<PrivateComponent><CartItems /></PrivateComponent> },
-    { path:"/orders", element:<PrivateComponent><OrdersPage /></PrivateComponent> },
+    { path:"login", element:<LoginPage /> },
+    { path:'product/:id', element: <PrivateComponent><SelectedProduct /></PrivateComponent>},
+    { path:"cartitems", element:<PrivateComponent><CartItems /></PrivateComponent> },
+    { path:"orders", element:<PrivateComponent><OrdersPage /></PrivateComponent> },
 
   ] }, 
   

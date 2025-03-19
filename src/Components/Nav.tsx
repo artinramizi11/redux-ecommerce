@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { RootState } from "./store/store";
-import { logOut } from "./store/authSlice";
+import { RootState } from "../store/store";
+import { logOut } from "../store/authSlice";
 
 const Nav: React.FC = () => {
   const navigate = useNavigate()
@@ -14,7 +14,7 @@ const Nav: React.FC = () => {
   return (
     <nav className="bg-blue-600 p-4 shadow-md">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
-        <h1 className="text-white text-xl font-bold cursor-pointer" onClick={() => navigate("/")}>ShopApp</h1>
+        <h1 className="text-white text-xl font-bold cursor-pointer" onClick={() => navigate("/")}>Artini's App</h1>
         <div className="flex space-x-6 gap-5">
           <Link to="/" className="text-white hover:text-gray-200 transition">
             Home

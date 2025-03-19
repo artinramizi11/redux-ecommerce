@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../store/store'
-import { checkOutCart, Product, removeFromCart } from '../store/productsSlice'
+import { checkOutCart, Product, removeItemFromCart } from '../store/productsSlice'
 
 const CartItems = () => {
     const dispatch = useDispatch()
@@ -23,7 +23,7 @@ const CartItems = () => {
                 <h2 className="text-xl font-semibold text-gray-800">{product.title}</h2>
                 <p className="text-lg text-gray-600">${product.price}</p>
               </div>
-              <button onClick={() => dispatch(removeFromCart({id: product.id}))} className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-200 cursor-pointer">
+              <button onClick={() => dispatch(removeItemFromCart({id: product.id}))} className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-200 cursor-pointer">
                 Remove from cart
               </button>
               <div className="mt-6 text-right">

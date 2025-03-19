@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { act } from "react";
 
 export type Product = {
     id: number,
@@ -18,7 +17,8 @@ type initialStateType = {
     cartItems: Product[],
     orders: Order[],
     totalOrders: number,
-    totalCartItems: number
+    totalCartItems: number,
+  
 }
 
 const initialState: initialStateType = {
@@ -27,7 +27,8 @@ const initialState: initialStateType = {
     cartItems: [],
     orders: [],
     totalOrders: 0,
-    totalCartItems: 0
+    totalCartItems: 0,
+
 
 }
 
@@ -50,7 +51,7 @@ export const ProductsSlice = createSlice({
             }
             state.totalCartItems = state.cartItems.length
          },
-        removeFromCart: (state,action: PayloadAction<{id: number}>) => {
+        removeItemFromCart: (state,action: PayloadAction<{id: number}>) => {
             state.cartItems = state.cartItems.filter((product) => product.id !== action.payload.id)
             state.totalCartItems = state.cartItems.length
         },
@@ -66,4 +67,4 @@ export const ProductsSlice = createSlice({
 })
 
 export default ProductsSlice.reducer
-export const {getProducts,getProductById,addToCart,removeFromCart,checkOutCart} = ProductsSlice.actions 
+export const {getProducts,getProductById,addToCart,removeItemFromCart,checkOutCart} = ProductsSlice.actions 
